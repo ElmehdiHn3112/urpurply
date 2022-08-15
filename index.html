@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>girl___FRIEND&#128156;</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url(https://fonts.google.com/specimen/Red+Hat+Text);
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            min-height: 100vh;
+            font-family: 'Red Hat Text', sans-serif;
+            position: relative;
+            background-color: #201e2b;
+            background-image: url(../tools/launch-countdown-timer-main/images/pattern-hills.svg);
+            background-position: bottom;
+            background-repeat: repeat-x;
+            background-size: contain;
+            overflow: hidden;
+
+
+        }
+
+        .body_bg {
+            width: 100%;
+            height: 100vh;
+            background: url(../tools/launch-countdown-timer-main/images/bg-stars.svg);
+            position: absolute;
+
+        }
+
+        .title {
+
+            margin-bottom: 100px;
+            color: #fff;
+        }
+
+        .title h1 {
+
+            margin-bottom: 10px;
+            text-transform:capitalize ;
+        }
+
+        .title span {
+
+            font-size: 0.9rem;
+            color: #ffffff78;
+        }
+
+        .container {
+
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -20%);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown .count {
+            border-radius: 10px;
+            box-shadow: 0 10px 0px 0px #00000054;
+
+
+        }
+
+        .countdown .count:not(.countdown .count:last-child) {
+
+            margin-right: 45px;
+        }
+
+        .countdown .count::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 47%;
+            width: 20px;
+            height: 13px;
+            border-radius: 9px 9px 0 0;
+            transform: rotate(90deg) translateY(-50%);
+            background-color: #161723;
+            z-index: 3;
+        }
+
+        .countdown .count::after {
+            content: "";
+            position: absolute;
+            right: -10px;
+            top: 47%;
+            width: 20px;
+            height: 13px;
+            border-radius: 9px 9px 0 0;
+            transform: rotate(270deg) translateY(-50%);
+            background-color: #161723;
+            z-index: 3;
+        }
+
+        .countdown .days_conatiner {
+            width: 200px;
+            height: 200px;
+            /* background-color: #fff; */
+            position: relative;
+
+        }
+
+        .countdown .upper_side {
+
+            height: 50%;
+            background-color: #2c2c44;
+            border-radius: 8px 8px 0 0;
+            border-bottom: 1px solid #4f5168;
+        }
+
+        .countdown .lower_side {
+
+            height: 50%;
+            background-color: #34364f;
+            border-radius: 0 0 8px 8px;
+            border-top: 1px solid #000000;
+
+        }
+
+        .lower_insider_sider {
+
+            /* width: 100%;
+            height: 50%;
+            background-color: #34364f;
+            border-radius: 0 0 8px 8px; */
+            /* border-top: 1px solid #000000; */
+            background: #34364f;
+            position: absolute;
+            /* transform: translateY(-42%); */
+            top: 50%;
+            height: 50%;
+            border-radius: 0 0 8px 8px;
+            width: 100%;
+            border-top: 1px solid #0000005d;
+        }
+
+        .countdown .value {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 7rem;
+            font-weight: 600;
+            color: #fc6082;
+            z-index: 5;
+            cursor: default;
+        }
+
+        .time_type {
+
+            color: #85839f;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: block;
+            margin-top: 20px;
+            letter-spacing: 3px;
+
+        }
+
+        .social_media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 13%;
+            left: 50%;
+            transform: translate(-50%, -13%);
+        }
+
+        .social_media a {
+
+            margin-right: 30px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .creator_purply_hh {
+
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            color: #ffffff78;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .creator_purply_hh:hover {
+
+            color: #4646e7;
+        }
+
+        @media screen and (max-width:980px) {
+            .container {
+
+                width: 900px;
+            }
+
+            .countdown .days_conatiner {
+                width: 150px;
+                height: 150px;
+            }
+
+            .countdown .value {
+
+                font-size: 5rem;
+            }
+        }
+
+        @media screen and (max-width:782px) {
+            .container {
+
+
+                width: 715px;
+            }
+
+            .countdown .days_conatiner {
+                width: 130px;
+                height: 130px;
+            }
+
+            .countdown .value {
+
+                font-size: 4rem;
+            }
+
+        }
+
+        @media screen and (max-width:718px) {
+
+            .container {
+
+
+                width: 650px;
+            }
+
+            .countdown .count:not(.countdown .count:last-child) {
+                margin-right: 35px;
+            }
+
+            .countdown .days_conatiner {
+                width: 111px;
+                height: 111px;
+            }
+
+            .countdown .value {
+
+                font-size: 3rem;
+            }
+
+            .time_type {
+
+                font-size: 1rem;
+            }
+
+        }
+
+        @media screen and (max-width:580px) {
+
+            .container {
+
+
+                width: 480px;
+            }
+
+            .countdown .count:not(.countdown .count:last-child) {
+                margin-right: 30px;
+            }
+
+            .countdown .days_conatiner {
+                width: 95px;
+                height: 95px;
+            }
+
+            .countdown .value {
+
+                font-size: 3rem;
+            }
+
+            .time_type {
+
+                font-size: 0.9rem;
+            }
+
+        }
+
+        @media screen and (max-width:518px) {
+
+            .container {
+
+
+                width: 400px;
+            }
+
+            .countdown .days_conatiner {
+                width: 75px;
+                height: 75px;
+            }
+
+            .countdown .value {
+
+                font-size: 1.9rem;
+            }
+
+            .time_type {
+
+                font-size: 0.7rem;
+            }
+
+            .countdown .count::after {
+                content: "";
+                position: absolute;
+                right: -7.5px;
+                top: 47%;
+                width: 13px;
+                height: 8px;
+                border-radius: 9px 9px 0 0;
+                transform: rotate(270deg) translateY(-50%);
+                background-color: #161723;
+                z-index: 3;
+            }
+
+            .countdown .count::before {
+                content: "";
+                position: absolute;
+                left: -7.5px;
+                top: 47%;
+                width: 13px;
+                height: 8px;
+                border-radius: 9px 9px 0 0;
+                transform: rotate(90deg) translateY(-50%);
+                background-color: #161723;
+                z-index: 3;
+            }
+
+        }
+
+        @media screen and (max-width:428px) {
+
+            .container {
+
+
+                width: 350px;
+            }
+
+            .countdown .days_conatiner {
+                width: 65px;
+                height: 65px;
+            }
+
+            .countdown .value {
+
+                font-size: 1.5rem;
+            }
+
+            .time_type {
+
+                font-size: 0.6rem;
+            }
+
+            .countdown .count:not(.countdown .count:last-child) {
+                margin-right: 20px;
+            }
+
+        }
+
+        @media screen and (max-width:350px) {
+            .title {
+
+                font-size: 1rem;
+            }
+
+            .container {
+
+
+                width: 280px;
+            }
+
+            .countdown .days_conatiner {
+                width: 52px;
+                height: 52px;
+            }
+
+            .countdown .value {
+
+                font-size: 1.2rem;
+            }
+
+            .time_type {
+
+                font-size: 0.45rem;
+            }
+
+            .countdown .count:not(.countdown .count:last-child) {
+                margin-right: 10px;
+            }
+
+            .countdown .count::before {
+                content: "";
+                position: absolute;
+                left: -5px;
+                top: 47%;
+                width: 10px;
+                height: 5px;
+                border-radius: 9px 9px 0 0;
+                transform: rotate(90deg) translateY(-50%);
+                background-color: #161723;
+                z-index: 3;
+            }
+
+            .countdown .count::after {
+                content: "";
+                position: absolute;
+                right: -5px;
+                top: 47%;
+                width: 10px;
+                height: 5px;
+                border-radius: 9px 9px 0 0;
+                transform: rotate(270deg) translateY(-50%);
+                background-color: #161723;
+                z-index: 3;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="body_bg">
+    </div>
+    <div class="container">
+
+
+
+
+        <div class="title">
+            <h1>Just for your eyes</h1>
+            <span>I Created This For U I Hope U Like It</span>
+        </div>
+        <div class="countdown">
+
+            <div class="days_conatiner count">
+                <div class="upper_side">
+
+                </div>
+                <span class="days_value value">08</span>
+                <div class="lower_side">
+
+                </div>
+                <div class="lower_insider_sider">
+
+                </div>
+                <span class="time_type">days</span>
+            </div>
+
+            <div class="days_conatiner count">
+                <div class="upper_side">
+
+                </div>
+                <span class="hours_value value">23</span>
+                <div class="lower_side">
+
+                </div>
+                <div class="lower_insider_sider">
+
+                </div>
+                <span class="time_type">hours</span>
+            </div>
+
+            <div class="days_conatiner count">
+                <div class="upper_side">
+
+                </div>
+                <span class="miutes_value value">55</span>
+                <div class="lower_side">
+
+                </div>
+                <div class="lower_insider_sider">
+
+                </div>
+                <span class="time_type">minutes</span>
+            </div>
+
+            <div class="days_conatiner count">
+                <div class="upper_side">
+
+                </div>
+                <span class="seconds_value value">41</span>
+                <div class="lower_side">
+
+                </div>
+                <div class="lower_insider_sider">
+
+                </div>
+                <span class="time_type">secondes</span>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <span class="creator_purply_hh">Made by Ur Purply &#128156;</span>
+    <div class="social_media">
+
+        <a href="https://www.facebook.com/profile.php?id=100045487164077">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path fill="#8385A9"
+                    d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z" />
+            </svg>
+        </a>
+
+        <a href="https://www.instagram.com/hajar_bhr1/?hl=fr">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path fill="#8385A9"
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+            </svg>
+        </a>
+
+        <a href="https://in.pinterest.com/hajarbhr/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path fill="#8385A9"
+                    d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+            </svg>
+        </a>
+    </div>
+
+
+    <script>
+        let social_media_icons = document.querySelectorAll('.social_media a svg');
+        let days_value = document.querySelector('.days_value');
+        let hours_value = document.querySelector('.hours_value');
+        let minute_value = document.querySelector('.miutes_value');
+        let seconds_value = document.querySelector('.seconds_value.value');
+
+
+        function test_seconds() {
+            if (parseInt(seconds_value.innerHTML) === 0) {
+
+                seconds_value.innerHTML = 60;
+            }
+            seconds_value.innerHTML = parseInt(seconds_value.innerHTML) - 1
+        }
+
+        // setInterval(test_seconds, 1000);
+
+        function change_social_media_icons_on_hover() {
+
+            social_media_icons.forEach(
+                (icon) => {
+
+                    icon.onmouseenter = function () {
+
+                        icon.children[0].setAttribute('fill', "#fa5f84")
+                    }
+
+                    icon.onmouseleave = function () {
+
+                        icon.children[0].setAttribute('fill', "#8385A9")
+
+                    }
+                }
+            )
+        }
+
+        // console.log(new Date('Sep 9, 2022 00:00:00').getTime() / 1000 /60 /60 /24);
+        // get the goal date
+
+
+
+        setInterval(the_countdown_function, 1000);
+
+        function the_countdown_function() {
+            let birthday_date = new Date('Sep 10, 2022 00:00:00').getTime();
+            let date_now = new Date().getTime();
+
+            let lw9t_li_ba9i = birthday_date - date_now;
+            // let days = Math.floor(lw9t_li_ba9i / 1000 / 60 / 60 / 24);
+            // let hours = Math.floor(lw9t_li_ba9i / 1000 / 60 / 60);
+            // let minutes = Math.floor(lw9t_li_ba9i / 1000 / 60);
+            // let secondes = Math.floor(lw9t_li_ba9i / 1000);
+            let days = Math.floor(lw9t_li_ba9i / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((lw9t_li_ba9i % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((lw9t_li_ba9i % (1000 * 60 * 60)) / (1000 * 60));
+            let secondes = Math.floor((lw9t_li_ba9i % (1000 * 60)) / 1000);
+
+            if (days < 10) {
+                days_value.innerHTML = `0${days}`;
+            } else {
+                days_value.innerHTML = days;
+            }
+            if (hours < 10) {
+                hours_value.innerHTML = `0${hours}`;
+            } else {
+                hours_value.innerHTML = hours;
+            }
+            if (minutes < 10) {
+                minute_value.innerHTML = `0${minutes}`;
+            } else {
+                minute_value.innerHTML = minutes;
+            }
+            if (secondes < 10) {
+                seconds_value.innerHTML = `0${secondes}`
+            } else {
+                seconds_value.innerHTML = secondes;
+            }
+        }
+        change_social_media_icons_on_hover();
+    </script>
+</body>
+
+</html>
